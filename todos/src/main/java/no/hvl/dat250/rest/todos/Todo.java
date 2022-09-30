@@ -1,9 +1,11 @@
 package no.hvl.dat250.rest.todos;
 
+import com.google.gson.Gson;
+
 import java.util.Objects;
 
 public class Todo {
-    private final Long id;
+    private Long id;
     private final String summary;
     private final String description;
 
@@ -23,6 +25,9 @@ public class Todo {
     public Long getId() {
         return id;
     }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getSummary() {
         return summary;
@@ -30,6 +35,11 @@ public class Todo {
 
     public String getDescription() {
         return description;
+    }
+
+    public String toJson() {
+        Gson gson = new Gson();
+        return gson.toJson(this);
     }
 
     // Do not change equals and hashcode!
